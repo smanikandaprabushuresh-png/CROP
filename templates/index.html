@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROP RECOMMENDATION SYSTEM - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-icon">🌱</span>
+                <span>CROP RECOMMENDATION SYSTEM</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                    <li><a href="{{ url_for('recommendation') }}">Crop Recommendation</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>CROP RECOMMENDATION SYSTEM</h1>
+            <p>
+                An intelligent agricultural decision support website that assists farmers, agricultural students, and researchers in selecting the most suitable crop for cultivation based on soil nutrients and local weather conditions.
+            </p>
+            <a href="{{ url_for('recommendation') }}" class="btn">Get Recommendation</a>
+        </section>
+
+        <!-- Feature Overview -->
+        <section class="features-grid">
+            <div class="feature-box">
+                <h3>🧪 Soil Nutrient Analysis</h3>
+                <p>Takes into account essential primary soil nutrients: Nitrogen (N), Phosphorus (P), and Potassium (K), which determine plant growth and soil fertility.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🌦️ Climate Factors</h3>
+                <p>Considers temperature, atmospheric humidity, and rainfall to ensure the crop can thrive in the prevailing climatic conditions.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🤖 Machine Learning Model</h3>
+                <p>Uses a trained Random Forest classification algorithm to analyze the multi-dimensional parameter set and suggest the optimal crop.</p>
+            </div>
+        </section>
+
+        <!-- How it works card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Simple 3-Step Process</h2>
+                <p class="subtitle">Quick and straightforward guidance for your field</p>
+            </div>
+            <ol style="padding-left: 20px; color: #3b4b3f; font-size: 15px; line-height: 2;">
+                <li><strong>Enter Soil & Weather Values:</strong> Provide values for N, P, K, pH, temperature, humidity, and rainfall.</li>
+                <li><strong>ML Processing:</strong> The Random Forest model evaluates the values against historical agronomic patterns.</li>
+                <li><strong>Instant Crop Advice:</strong> Receive an immediate recommendation of the most suitable crop for optimal yield.</li>
+            </ol>
+            <div style="margin-top: 20px;">
+                <a href="{{ url_for('recommendation') }}" class="btn">Go to Recommendation Form &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Crop Recommendation System | College Machine Learning Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

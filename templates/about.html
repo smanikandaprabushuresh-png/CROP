@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CROP RECOMMENDATION SYSTEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-icon">🌱</span>
+                <span>CROP RECOMMENDATION SYSTEM</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('recommendation') }}">Crop Recommendation</a></li>
+                    <li><a href="{{ url_for('about') }}" class="active">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="card">
+            <div class="card-header">
+                <h1>About the Crop Recommendation System</h1>
+                <p class="subtitle">A simple machine learning project designed to support agricultural decision making.</p>
+            </div>
+
+            <!-- Section 1: Overview -->
+            <section class="about-section">
+                <h3>1. Project Overview</h3>
+                <p>
+                    Agriculture plays a vital role in food security and the economy. Choosing the right crop for specific field conditions is crucial for maximizing crop yield and preventing financial loss.
+                </p>
+                <p>
+                    The <strong>Crop Recommendation System</strong> is a simple, student-level Machine Learning project that guides farmers and agriculture practitioners to select the most suitable crop based on their soil chemical properties and local meteorological conditions.
+                </p>
+            </section>
+
+            <!-- Section 2: Machine Learning Model -->
+            <section class="about-section">
+                <h3>2. Machine Learning Approach</h3>
+                <p>
+                    This system implements a <strong>Random Forest Classification</strong> algorithm.
+                </p>
+                <ul>
+                    <li><strong>Algorithm:</strong> Random Forest is an ensemble learning method that constructs a collection of decision trees during training.</li>
+                    <li><strong>How it works:</strong> Each decision tree votes on the most probable crop based on input thresholds, and the majority class becomes the final recommendation.</li>
+                    <li><strong>Why Random Forest:</strong> It offers high classification accuracy, handles multi-class agricultural data effectively, and prevents overfitting compared to a single decision tree.</li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Input Parameters Explained -->
+            <section class="about-section">
+                <h3>3. Input Parameters Explained</h3>
+                <p>The system evaluates 7 core agricultural features before arriving at a recommendation:</p>
+                <ul>
+                    <li><strong>Nitrogen (N):</strong> Promotes vegetative leaf growth and green foliage.</li>
+                    <li><strong>Phosphorus (P):</strong> Essential for root establishment, flowering, and seed formation.</li>
+                    <li><strong>Potassium (K):</strong> Enhances disease resistance, drought tolerance, and fruit quality.</li>
+                    <li><strong>Temperature (°C):</strong> Influences photosynthesis rate and growing season length.</li>
+                    <li><strong>Humidity (%):</strong> Determines plant transpiration and moisture retention.</li>
+                    <li><strong>Soil pH:</strong> Controls the availability of essential nutrients to plant root systems.</li>
+                    <li><strong>Rainfall (mm):</strong> Determines natural water availability throughout the crop cycle.</li>
+                </ul>
+            </section>
+
+            <!-- Section 4: Technology Stack -->
+            <section class="about-section">
+                <h3>4. Technology Stack</h3>
+                <ul>
+                    <li><strong>Frontend:</strong> Clean HTML5, Vanilla CSS3 (Agricultural Green/White Theme), JavaScript</li>
+                    <li><strong>Backend:</strong> Python with Flask microframework</li>
+                    <li><strong>Machine Learning:</strong> Scikit-Learn (Random Forest Classifier), Pandas, NumPy</li>
+                    <li><strong>Persistence:</strong> Pickle model serialization (<code>crop_model.pkl</code>)</li>
+                </ul>
+            </section>
+
+            <div style="margin-top: 20px;">
+                <a href="{{ url_for('recommendation') }}" class="btn">Try the Recommendation System &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Crop Recommendation System | College Machine Learning Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

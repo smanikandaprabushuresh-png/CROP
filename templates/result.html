@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Result - CROP RECOMMENDATION SYSTEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-icon">🌱</span>
+                <span>CROP RECOMMENDATION SYSTEM</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('recommendation') }}">Crop Recommendation</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="card">
+            <!-- Recommendation Output Box -->
+            <div class="result-box">
+                <span class="result-badge">AI / ML Recommendation</span>
+                <div class="result-crop-title">Recommended Crop: {{ crop }}</div>
+                <p class="result-message">
+                    Based on the entered soil and environmental conditions, this crop is suitable.
+                </p>
+                {% if description %}
+                <p class="result-description">{{ description }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Parameters Summary Table -->
+            <div class="card-header">
+                <h2>Entered Soil & Weather Details</h2>
+                <p class="subtitle">The values evaluated by the Random Forest classifier:</p>
+            </div>
+
+            <div class="parameters-table-container">
+                <table class="parameters-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Entered Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for param, val in entered_values.items() %}
+                        <tr>
+                            <td><strong>{{ param }}</strong></td>
+                            <td>{{ val }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="{{ url_for('recommendation') }}" class="btn">Test Another Soil Sample</a>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary" style="margin-left: 10px;">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Crop Recommendation System | College Machine Learning Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
